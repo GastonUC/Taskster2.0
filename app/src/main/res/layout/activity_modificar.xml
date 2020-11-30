@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity">
+    tools:context=".ModificarActivity">
 
     <TextView
-        android:id="@+id/nuevaNota"
-        android:text="@string/nueva_nota"
+        android:id="@+id/modNota"
+        android:text="@string/tit_card_mod"
         android:textSize="35sp"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
-        android:id="@+id/titleNota"
+        android:id="@+id/titleModNota"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/descripNota"
+        android:id="@+id/descripModNota"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -39,20 +39,20 @@
         android:layout_marginTop="20dp"
         android:inputType="textMultiLine"
         android:hint="@string/hintDescripcionNota"
-        app:layout_constraintTop_toBottomOf="@id/titleNota"
+        app:layout_constraintTop_toBottomOf="@id/titleModNota"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
-        android:id="@+id/add_button"
+        android:id="@+id/update_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginTop="30dp"
         android:textAllCaps="false"
         android:textSize="16sp"
-        android:text="@string/buttonAdd"
-        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        android:text="@string/buttonMod"
+        app:layout_constraintTop_toBottomOf="@id/descripModNota"
         app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

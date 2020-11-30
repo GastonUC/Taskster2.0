@@ -1,12 +1,14 @@
 package cl.inacap.taskster20;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -36,6 +38,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.nota_id_txt.setText(String.valueOf(nota_id.get(position)));
         holder.nota_title_txt.setText(String.valueOf(nota_title.get(position)));
         holder.nota_descrip_txt.setText(String.valueOf(nota_descrip.get(position)));
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ModificarActivity.class);
+                intent.putExtra("id", String.valueOf(nota_id.get(position)));
+                intent.putExtra("title",String.valueOf(nota_title.get(position)));
+                intent.putExtra("descrip",String.valueOf(nota_descrip.get(position)));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,12 +58,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView nota_id_txt, nota_title_txt, nota_descrip_txt;
+        ConstraintLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nota_id_txt = itemView.findViewById(R.id.id_nota_txt);
             nota_title_txt = itemView.findViewById(R.id.tit_nota);
             nota_descrip_txt = itemView.findViewById(R.id.descrip_nota);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }
