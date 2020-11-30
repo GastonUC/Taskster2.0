@@ -1,5 +1,6 @@
 package cl.inacap.taskster20;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,9 +17,11 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
+    Activity activity;
     private ArrayList nota_id, nota_title, nota_descrip;
 
-    CustomAdapter(Context context, ArrayList nota_id, ArrayList nota_title, ArrayList nota_descrip) {
+    CustomAdapter(Activity activity, Context context, ArrayList nota_id, ArrayList nota_title, ArrayList nota_descrip) {
+        this.activity = activity;
         this.context = context;
         this.nota_id = nota_id;
         this.nota_title = nota_title;
@@ -45,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("id", String.valueOf(nota_id.get(position)));
                 intent.putExtra("title",String.valueOf(nota_title.get(position)));
                 intent.putExtra("descrip",String.valueOf(nota_descrip.get(position)));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent, 1); //Es para poder actualizar el activity de las notas para que sea visible la modificación
             }
         });
     }

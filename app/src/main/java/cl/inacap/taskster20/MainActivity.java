@@ -1,5 +1,6 @@
 package cl.inacap.taskster20;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,11 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
         guardarDataArrays();
 
-        customAdapter = new CustomAdapter(MainActivity.this, nota_id, nota_title, nota_descrip);
+        customAdapter = new CustomAdapter(MainActivity.this,this, nota_id, nota_title, nota_descrip);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
-    
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1) {
+            recreate();
+        }
+    }
+
     void guardarDataArrays() {
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0) {

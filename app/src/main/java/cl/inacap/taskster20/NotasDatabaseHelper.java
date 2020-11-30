@@ -21,7 +21,7 @@ public class NotasDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_DESCRIP = "nota_descrip";
 
 
-    public NotasDatabaseHelper(@Nullable Context context) {
+    NotasDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -65,5 +65,19 @@ public class NotasDatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    void actualizarData(String row_id, String title, String descrip) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_DESCRIP, descrip);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if(result == -1) {
+            Toast.makeText(context, "Fallo al Actualizar.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Actualizado Satisfactoriamente!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

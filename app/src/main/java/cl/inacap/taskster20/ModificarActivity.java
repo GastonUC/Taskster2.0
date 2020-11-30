@@ -23,13 +23,17 @@ public class ModificarActivity extends AppCompatActivity {
         title_nota = findViewById(R.id.titleModNota);
         descrip_nota = findViewById(R.id.descripModNota);
         update_button = findViewById(R.id.update_button);
-        update_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+        //Primero se llama este
         getAndSetIntentData();
+
+        update_button.setOnClickListener((view) -> {
+                //Y luego de eso se puede llamar a este método
+                NotasDatabaseHelper myDB = new NotasDatabaseHelper(ModificarActivity.this);
+                title = title_nota.getText().toString().trim();
+                descrip = descrip_nota.getText().toString().trim();
+                myDB.actualizarData(id, title, descrip);
+        });
     }
 
     void getAndSetIntentData() {
