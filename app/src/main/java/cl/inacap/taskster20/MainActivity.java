@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -58,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
+
+    /*@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {             //Para poder actualizar el main
+            recreate();
+            return true;
+        } else {
+            return false;
+        }
+    }*/
 
     void guardarDataArrays() {
         Cursor cursor = myDB.readAllData();

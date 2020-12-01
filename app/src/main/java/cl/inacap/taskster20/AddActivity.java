@@ -12,6 +12,8 @@ import android.widget.EditText;
 
 public class AddActivity extends AppCompatActivity {
 
+    private Context context;
+    Activity activity;
     EditText titleNota, descripNota;
     Button add_button;
 
@@ -28,7 +30,9 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View view) {
                 NotasDatabaseHelper myDB = new NotasDatabaseHelper(AddActivity.this);
                 myDB.addNote(titleNota.getText().toString().trim(), descripNota.getText().toString().trim());
-                finish(); //Debo de agregar algo para que se actualice al volver atrás
+
+                Intent intent = new Intent(context, ModificarActivity.class);
+                activity.startActivityForResult(intent, 1); //Es para poder actualizar el activity de las notas para que sea visible la modificación
             }
         });
     }

@@ -36,6 +36,7 @@ public class ModificarActivity extends AppCompatActivity {
                 title = title_nota.getText().toString().trim();
                 descrip = descrip_nota.getText().toString().trim();
                 myDB.actualizarData(id, title, descrip);
+                finish();
         });
 
         delete_button.setOnClickListener(new View.OnClickListener() {
