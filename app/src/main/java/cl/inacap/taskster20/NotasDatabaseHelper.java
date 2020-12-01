@@ -80,4 +80,14 @@ public class NotasDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Actualizado Satisfactoriamente!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    void borrarFila(String row_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if(result == -1) {
+            Toast.makeText(context, "Ha ocurrido un fallo al eliminar.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Se eliminó correctamente.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

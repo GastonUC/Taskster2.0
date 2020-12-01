@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorCard">#D9D9D9</color>
     <color name="elevationCard">#000000</color>
+    <color name="red">#FF0000</color>
 </resources>

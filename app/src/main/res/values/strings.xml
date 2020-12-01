@@ -8,5 +8,6 @@
     <string name="hintDescripcionNota">Nota...</string>
     <string name="buttonAdd">Agregar</string>
     <string name="buttonMod">Modificar</string>
+    <string name="buttonDel">Eliminar</string>
     <string name="tit_card_mod">Modificar Nota</string>
 </resources>

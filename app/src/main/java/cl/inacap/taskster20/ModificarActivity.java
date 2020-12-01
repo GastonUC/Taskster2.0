@@ -1,7 +1,9 @@
 package cl.inacap.taskster20;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +13,7 @@ import android.widget.Toast;
 public class ModificarActivity extends AppCompatActivity {
 
     EditText title_nota, descrip_nota;
-    Button update_button;
+    Button update_button, delete_button;
 
     String id, title, descrip;
 
@@ -23,6 +25,7 @@ public class ModificarActivity extends AppCompatActivity {
         title_nota = findViewById(R.id.titleModNota);
         descrip_nota = findViewById(R.id.descripModNota);
         update_button = findViewById(R.id.update_button);
+        delete_button = findViewById(R.id.delete_button);
 
         //Primero se llama este
         getAndSetIntentData();
@@ -33,6 +36,13 @@ public class ModificarActivity extends AppCompatActivity {
                 title = title_nota.getText().toString().trim();
                 descrip = descrip_nota.getText().toString().trim();
                 myDB.actualizarData(id, title, descrip);
+        });
+
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogoConfirmacion();
+            }
         });
     }
 
@@ -49,5 +59,26 @@ public class ModificarActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "No hay data.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    void dialogoConfirmacion() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("¿Deseas eliminar " + title + "?");
+        builder.setMessage("¿Esta seguro que quiere eliminar " + title + "?");
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                NotasDatabaseHelper myDB = new NotasDatabaseHelper(ModificarActivity.this);
+                myDB.borrarFila(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //No lleva nada este método
+            }
+        });
+        builder.create().show();
     }
 }

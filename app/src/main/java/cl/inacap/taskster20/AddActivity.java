@@ -2,6 +2,9 @@ package cl.inacap.taskster20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +27,8 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 NotasDatabaseHelper myDB = new NotasDatabaseHelper(AddActivity.this);
-                myDB.addNote(titleNota.getText().toString().trim(),
-                        descripNota.getText().toString().trim());
+                myDB.addNote(titleNota.getText().toString().trim(), descripNota.getText().toString().trim());
+                finish(); //Debo de agregar algo para que se actualice al volver atrás
             }
         });
     }
