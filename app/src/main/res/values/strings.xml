@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Taskster 2.0</string>
+    <string name="app_name">Taskster</string>
     <string name="tit_principal">TAREAS</string>
     <string name="tit_card">Título de la Tarea</string>
     <string name="conten_card">Escribir descripción aquí...</string>
