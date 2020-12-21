@@ -43,16 +43,43 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <TextView
+        android:id="@+id/add_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/exampleDate"
+        android:textSize="35sp"
+        android:inputType="date"
+        android:focusable="false"
+        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        app:layout_constraintRight_toLeftOf="@id/date_button"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageButton
+        android:id="@+id/date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:src="@drawable/ic_event"
+        android:background="@null"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <Button
         android:id="@+id/add_button"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginTop="30dp"
+        android:paddingHorizontal="45dp"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:text="@string/buttonAdd"
-        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        app:layout_constraintTop_toBottomOf="@id/add_date"
         app:layout_constraintRight_toRightOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

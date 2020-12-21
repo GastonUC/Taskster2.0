@@ -10,4 +10,8 @@
     <string name="buttonMod">Modificar</string>
     <string name="buttonDel">Eliminar</string>
     <string name="tit_card_mod">Modificar Nota</string>
+    <string name="hintUser">Usuario</string>
+    <string name="hintPass">Contraseña</string>
+    <string name="buttonLogin">Ingresar</string>
+    <string name="exampleDate">00-00-00</string>
 </resources>
