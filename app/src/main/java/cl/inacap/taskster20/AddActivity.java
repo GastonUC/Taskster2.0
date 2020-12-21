@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -25,6 +26,7 @@ public class AddActivity extends AppCompatActivity {
     TextView text_date;
     Button add_button;
     ImageButton date_button;
+    CheckBox date_checker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,31 @@ public class AddActivity extends AppCompatActivity {
         titleNota = findViewById(R.id.titleNota);
         descripNota = findViewById(R.id.descripNota);
         text_date = findViewById(R.id.text_date);
+        date_checker = findViewById(R.id.date_checker);
+        date_checker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(date_checker.isChecked()) {
+                    text_date.setVisibility(View.VISIBLE);
+                    date_button.setVisibility(View.VISIBLE);
+                }else{
+                    text_date.setVisibility(View.GONE);
+                    date_button.setVisibility(View.GONE);
+                }
+            }
+        });
+        date_button = findViewById(R.id.date_button);
+        date_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.date_button:
+                        mostrarCalendario();
+                        break;
+                }
+                Toast.makeText(AddActivity.this, "Se ha presionado botón Calendario", Toast.LENGTH_SHORT).show(); //Quitarº
+            }
+        });
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,18 +76,6 @@ public class AddActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, ModificarActivity.class);
                     activity.startActivityForResult(intent, 1); //Es para poder actualizar el activity de las notas para que sea visible la modificación
                 }
-            }
-        });
-        date_button = findViewById(R.id.date_button);
-        date_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.date_button:
-                        mostrarCalendario();
-                        break;
-                }
-                Toast.makeText(AddActivity.this, "Se ha presionado botón Calendario", Toast.LENGTH_SHORT).show();
             }
         });
     }

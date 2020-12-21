@@ -43,16 +43,27 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+    <CheckBox
+        android:id="@+id/date_checker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:checked="false"
+        android:text="@string/checkQuestion"
+        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <TextView
         android:id="@+id/text_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="@string/exampleDate"
         android:textSize="35sp"
         android:inputType="date"
         android:focusable="false"
-        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/date_checker"
         app:layout_constraintRight_toLeftOf="@id/date_button"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -60,12 +71,13 @@
         android:id="@+id/date_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="80dp"
         android:src="@drawable/ic_event"
         android:background="@null"
         android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/descripNota"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/date_checker"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
@@ -73,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:paddingHorizontal="45dp"
         android:textAllCaps="false"
         android:textSize="16sp"
