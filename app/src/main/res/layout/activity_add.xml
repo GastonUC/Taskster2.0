@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
-        android:id="@+id/add_date"
+        android:id="@+id/text_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -78,7 +78,7 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:text="@string/buttonAdd"
-        app:layout_constraintTop_toBottomOf="@id/add_date"
+        app:layout_constraintTop_toBottomOf="@id/text_date"
         app:layout_constraintRight_toRightOf="parent"/>
 
 
